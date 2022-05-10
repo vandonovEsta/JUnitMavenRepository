@@ -7,17 +7,17 @@ import static com.JUnitMavenProject.enums.utils.EnumUtils.returnOperationsFromSt
 
 /**
  * Accepts two numbers and an arithmetic operation to execute against them.
- *
  */
 public class Calculator {
-    private double firstNumber;
-    private double secondNumber;
-    private Operations operation;
+    private final double firstNumber;
+    private final double secondNumber;
+    private final Operations operation;
 
     private double result;
 
     /**
      * Base constructor
+     *
      * @param firstNumber
      * @param secondNumber
      * @param operation
@@ -30,6 +30,7 @@ public class Calculator {
 
     /**
      * Accepts String instead of enum for the operation and calls the base constructor
+     *
      * @param firstNumber
      * @param secondNumber
      * @param operation
@@ -44,13 +45,13 @@ public class Calculator {
      * @throws InvalidArithmeticOperationException - returns a custom exception if the operation was invalid
      */
     public double calculate() throws InvalidArithmeticOperationException {
-        switch (operation){
+        switch (operation) {
             case SUM:
                 result = firstNumber + secondNumber;
-            break;
+                break;
             case DIVISION:
                 result = firstNumber / secondNumber;
-            break;
+                break;
             case SUBTRACTION:
                 result = firstNumber - secondNumber;
                 break;
