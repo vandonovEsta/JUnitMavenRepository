@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorTests {
     private double firstNumber = 55.7;
@@ -121,6 +121,6 @@ public class CalculatorTests {
         Calculator calculator = new Calculator(firstNumber, secondNumber, operation);
         double result = calculator.calculate();
 
-        assertEquals(firstNumber + secondNumber , result);
+        assertEquals(firstNumber + secondNumber, result);
     }
 }

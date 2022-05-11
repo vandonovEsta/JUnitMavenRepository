@@ -22,7 +22,7 @@ public class Calculator {
      * @param secondNumber
      * @param operation
      */
-    public Calculator(double firstNumber, double secondNumber, Operations operation) {
+    public Calculator(Double firstNumber, Double secondNumber, Operations operation) {
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
         this.operation = operation;
@@ -44,7 +44,9 @@ public class Calculator {
      * @return double digit after the calculation is complete. Input is set from the constructor
      * @throws InvalidArithmeticOperationException - returns a custom exception if the operation was invalid
      */
-    public double calculate() throws InvalidArithmeticOperationException {
+    protected static double calculationFunction(double firstNumber, double secondNumber, Operations operation)
+            throws InvalidArithmeticOperationException {
+        double result;
         switch (operation) {
             case SUM:
                 result = firstNumber + secondNumber;
@@ -61,9 +63,33 @@ public class Calculator {
             default:
                 throw new InvalidArithmeticOperationException("The operation was not valid");
         }
+        return result;
+    }
 
+    /**
+     * executes the calculation calling calculationFunction()
+     * and sets the result in a private variable and then returns the result
+     *
+     * @return
+     * @throws InvalidArithmeticOperationException
+     */
+    public double calculate() throws InvalidArithmeticOperationException {
+        this.result = calculationFunction(firstNumber, secondNumber, operation);
+        return result;
+    }
+
+    /**
+     * @return result, preferably should be used after calculate() has already been called
+     */
+    public double getResult() {
         return result;
     }
 
 
+    /**
+     * @return returns the private operation variable
+     */
+    public Operations getOperation() {
+        return operation;
+    }
 }

@@ -7,7 +7,7 @@ public class EnumUtils {
     private EnumUtils() {
     }
 
-    public static Operations returnOperationsFromString (String inputString) {
+    public static Operations returnOperationsFromString(String inputString) {
         return Operations.valueOf(inputString.toUpperCase());
     }
 }
