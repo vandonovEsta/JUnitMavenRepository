@@ -3,6 +3,9 @@ package com.JUnitMavenProject.calculator;
 import com.JUnitMavenProject.enums.Operations;
 import com.JUnitMavenProject.exceptions.InvalidArithmeticOperationException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.JUnitMavenProject.enums.utils.EnumUtils.returnOperationsFromString;
 
 /**
@@ -14,6 +17,7 @@ public class Calculator {
     private final Operations operation;
 
     private double result;
+    private List<Double> results;
 
     /**
      * Base constructor
@@ -26,6 +30,7 @@ public class Calculator {
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
         this.operation = operation;
+        results = new ArrayList<>();
     }
 
     /**
@@ -78,6 +83,19 @@ public class Calculator {
         return result;
     }
 
+    public double calculateMultiple(List<Double> input) throws InvalidArithmeticOperationException {
+        double result = 0;
+        for (int i = 0; i < input.size(); i++) {
+            if (i == 0) {
+                result = input.get(i);
+            } else {
+                result += calculationFunction(result, input.get(i), this.operation);
+            }
+        }
+        results.add(result);
+        return result;
+    }
+
     /**
      * @return result, preferably should be used after calculate() has already been called
      */
@@ -91,5 +109,23 @@ public class Calculator {
      */
     public Operations getOperation() {
         return operation;
+    }
+
+    public void printResults() {
+        for (Double result :
+                results) {
+            if (result >= 0) {
+                System.out.println("Positive "
+                        + operation.toString().toLowerCase()
+                        + " = "
+                        + result);
+
+            } else {
+                System.out.println("Negative "
+                        + operation.toString().toLowerCase()
+                        + " = "
+                        + result);
+            }
+        }
     }
 }

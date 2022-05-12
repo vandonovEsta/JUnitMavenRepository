@@ -18,10 +18,11 @@ Cucumber
 
 Extended the project adding cucumber dependencies and added tests.
 
-The purpose was to practice Cucumber, 
+The purpose was to practice Cucumber,
 Gherkin syntax and Cucumber data types.
 
 Added classes:
+
 - CalculatorContainer - manages two Calculator class
 - CalculatorController - manages multiple CalculatorContainers
 - CalculatorHelper - extend the Calculator class and provides static methods to use

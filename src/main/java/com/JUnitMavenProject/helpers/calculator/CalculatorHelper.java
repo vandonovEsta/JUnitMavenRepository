@@ -60,4 +60,6 @@ public class CalculatorHelper extends com.JUnitMavenProject.calculator.Calculato
             throws InvalidArithmeticOperationException {
         return (float) sum((double) firstFloat, (double) secondFloat);
     }
+
+
 }
